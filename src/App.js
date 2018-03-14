@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import { Grid, Row, Col } from 'react-bootstrap';
+
 const pages = ['בית', 'אודות', 'הדרכות', 'קבוצות']
 
 class App extends Component {
@@ -16,26 +18,33 @@ class App extends Component {
   }
 
   renderHeader() {
-    let { container, btnWrap } = style.header;
+    let { topContainer, btnWrap, container } = style.header;
     let { currentPage } = this.state
     return (
-      <header className="App-header">
-        <div style={container}>
-          <img src={require('./images/logo.png')} style={{transform:[{translateX: -30}]}}/>
-          <h1 >זה בידים שלך</h1>
-        </div>
-        <div style={container}>
-          {
-            pages.map((page, i) => {
-              let btnStyle = Object.assign({}, btnWrap, {color: currentPage == i? '#A35CA5':'#272727'})
-              return (
-                <div onClick={() => this.setState({currentPage: i})} style={btnStyle}>
-                  <p>{page}</p>
-                </div>
-                )
-            })
-          }
-        </div>
+      <header>
+        {/*<div style={container}> */}
+        <Grid>
+          <Row style={topContainer}>
+            <Col md={4}>
+              <img src={require('./images/logo.png')} />
+            </Col>
+            <Col md={8}>
+              <h1 style={{fontFamily: 'Amatic SC'}}>זה בידים שלך</h1>
+            </Col>
+          </Row>
+          <Row style={container}>
+            {
+              pages.map((page, i) => {
+                let btnStyle = Object.assign({}, btnWrap, {color: currentPage == i? '#A35CA5':'#272727'})
+                return (
+                  <div onClick={() => this.setState({currentPage: i})} style={btnStyle}>
+                    <p>{page}</p>
+                  </div>
+                  )
+              })
+            }
+          </Row>
+        </Grid>
       </header>
       )
   }
@@ -55,13 +64,22 @@ class App extends Component {
 
 const style = {
   header: {
+    topContainer: {
+      display: 'flex',
+      flexDirection: 'row-reverse',
+      alignItems: 'center',
+      borderBottom: '2px solid #5f5f5f',
+    },
     container: {
       display: 'flex',
       flexDirection: 'row-reverse',
-      alignItems: 'center'
+      alignItems: 'center',
+      marginTop: 17,
+      // padding: 30
     },
     btnWrap: {
-      padding: 5,
+      padding: 13,
+      cursor: 'pointer'
     }
   }
 }
