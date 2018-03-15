@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
+
+import GridImages from './components/GridImages'
 
 import { Grid, Row, Col } from 'react-bootstrap';
 
 const pages = ['בית', 'אודות', 'הדרכות', 'קבוצות']
+
+const imgBtn1 = require('./images/family.png')
+const imgBtn2 = require('./images/happy.png')
+const imgBtn3 = require('./images/regular.png')
+const imgBtn4 = require('./images/size.png')
 
 class App extends Component {
 
@@ -26,7 +33,7 @@ class App extends Component {
         <Grid>
           <Row style={topContainer}>
             <Col md={4}>
-              <img src={require('./images/logo.png')} />
+              <img src={require('./images/logo.png')} alt='Logo' />
             </Col>
             <Col md={8}>
               <h1 style={{fontFamily: 'Amatic SC'}}>זה בידים שלך</h1>
@@ -35,9 +42,9 @@ class App extends Component {
           <Row style={container}>
             {
               pages.map((page, i) => {
-                let btnStyle = Object.assign({}, btnWrap, {color: currentPage == i? '#A35CA5':'#272727'})
+                let btnStyle = Object.assign({}, btnWrap, {color: currentPage === i? '#A35CA5':'#272727'})
                 return (
-                  <div onClick={() => this.setState({currentPage: i})} style={btnStyle}>
+                  <div key={'head_btn_'+i} onClick={() => this.setState({currentPage: i})} style={btnStyle}>
                     <p>{page}</p>
                   </div>
                   )
@@ -53,10 +60,18 @@ class App extends Component {
     return (
       <div className="App">
         { this.renderHeader() }
+        <GridImages 
+        colProps={{md: 3}}
+        >
+          <img src={imgBtn1} style={{width: '100%', hight: '100%'}} alt='Button navigator' />
+          <img src={imgBtn2} style={{width: '100%', hight: '100%'}} alt='Button navigator' />
+          <img src={imgBtn3} style={{width: '100%', hight: '100%'}} alt='Button navigator' />
+          <img src={imgBtn4} style={{width: '100%', hight: '100%'}} alt='Button navigator' />
+        </GridImages>
+        <hr />
         <p className="App-intro">
-          I got started already.. 
+          lalalalala lala la la
         </p>
-        <p> Now for navigation</p>
       </div>
     );
   }
