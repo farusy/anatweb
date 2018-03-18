@@ -7,7 +7,10 @@
 	-moz-transition: all 0.5s ease;
   	-o-transition: all 0.5s ease;
   	transition: all 0.5s ease;
+  	color: rgba(0,0,0,0);
+  	cursor: pointer;
 }
 .gridImageCol:hover {
 	background-color: rgba(0,0,0,0.5);
+	color: #fff;
 }
