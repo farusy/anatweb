@@ -1,0 +1,80 @@
+// Colors
+$bg-color: #F0D3CF;  /* #e4e1ec */
+$dot-color: #FFFFFF;
+
+// Dimensions
+$dot-size: 4px;
+$dot-space: 25px;
+
+//border
+$general-border: 2px solid #000;
+
+.container {
+	background-color: rgba(256,256,256,0.2);
+}
+
+@mixin linniar-dotted-background($dot-color, $bg-color, $dot-size, $dot-space) {
+	background-image: -webkit-repeating-radial-gradient(center center, $dot-color, $dot-color $dot-size, transparent $dot-size, transparent 100%);
+    background-image: -moz-repeating-radial-gradient(center center, $dot-color, $dot-color $dot-size, transparent $dot-size, transparent 100%);
+    background-image: -ms-repeating-radial-gradient(center center, $dot-color, $dot-color $dot-size, transparent $dot-size, transparent 100%);
+    background-image: repeating-radial-gradient(center center, $dot-color, $dot-color $dot-size, transparent $dot-size, transparent 100%);
+    -webkit-background-size: $dot-space $dot-space;
+    -moz-background-size: $dot-space $dot-space;
+    background-size: $dot-space $dot-space;
+    background-color: $bg-color;
+}
+
+@mixin hypotenuse-dotted-background($dot-color, $bg-color, $dot-size, $dot-space) {
+	background: radial-gradient(circle, $dot-color $dot-size, transparent $dot-size),
+	radial-gradient(circle, $dot-color $dot-size, $bg-color $dot-size) $dot-space $dot-space;
+	background-size:2*$dot-space 2*$dot-space;
+}
+
+
+footer {
+	/*border-top: $general-border;
+	padding: 20px;
+	margin-top: 20px;*/
+}
+body {
+	@include hypotenuse-dotted-background($dot-color, $bg-color, $dot-size, $dot-space);
+}
+
+.App {
+  text-align: right;
+  padding: 20px;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #fff;
+  border-bottom: $general-border;
+  /*height: 150px;*/
+  padding: 20px;
+  color: #272727;
+}
+.Header-top .Header-bottom {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+a, a:hover, .activate {
+  text-decoration: none;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

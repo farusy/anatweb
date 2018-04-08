@@ -23,13 +23,26 @@ export default class Home extends Component {
 
 	render() {
 		let { location } = this.props
-		console.log( location )
 		return (
-			<div>
+			<div className='container'>
 				{location.pathname !== '/home' && <Redirect to='/home' />}
-				<h1>בית</h1>
+				<div style={style.textImgWrap}>
+					<p>
+						הורות הוא תהליך דינמי. אחת התכונות הנדרשות היא הגמישות: הילדים משתנים כל הזמן, מערכת היחסים מושפעת מאותם שינויים ומשתנה אף היא, תנאי החיים מסביב למשפחה משתנים אף הם ושוב נדרשות התאמות חדשות. מערכת החינוך דורשת מהמשפחה להתאים את עצמה לדרישותיה ועוד.
+						<br/>
+						הורים מתבגרים- היא אותה תופעה חוזרת ונשנית של התגמשות פנימית אצל ההורים, בהתאם לשינויים שמתרחשים במשפחה. מול כל אתגר נדרשים ההורים לעשות הערכת מצב ולהחליט בהתאם לעולם הערכים שלהם מה תהיה התגובה –האם להגמיש את עצמם או אולי לעמוד דווקא על עקרונותיהם.
+					</p>
+					<img src={require('../images/mona-lisa.png')} />
+				</div>
 			</div>
 		)
 	}
 
+}
+
+const style = {
+	textImgWrap: {
+		display: 'flex',
+		flexDirection: 'row-reverse',
+	}
 }
