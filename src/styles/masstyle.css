@@ -8,8 +8,11 @@ footer {
   margin-top: 20px;*/ }
 
 body {
-  background: radial-gradient(circle, #FFFFFF 4px, transparent 4px), radial-gradient(circle, #FFFFFF 4px, #F0D3CF 4px) 25px 25px;
-  background-size: 50px 50px; }
+  background: radial-gradient(circle, #FFFFFF 4px, transparent 4px), radial-gradient(circle, #FFFFFF 4px, #f5eeee 4px) 25px 25px;
+  background-size: 50px 50px; 
+  font-family: 'Amatic SC', cursive;
+  font-size: 25px;
+}
 
 .App {
   text-align: right;
